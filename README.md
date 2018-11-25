@@ -1,5 +1,5 @@
 **This is a branch forked from Jim Brown's Tevo Tarantula Marlin firmware (which is forked from the official Marlin)**<br>
-This branch is specially designed for my original Tevo Tarantula MKS BASE motherboard
+This branch is specially designed for my new Tevo Tarantula MKS GEN L motherboard with TMC2130 motor drivers through SPI communication
 
 ============================================================================
 
