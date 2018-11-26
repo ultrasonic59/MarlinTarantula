@@ -36,9 +36,9 @@
  */
 //#define LARGE_BED
 #define SDSUPPORT
-//#define CHANGE_Y_DIRECTION        // If your bed homes in the wrong direction (it should move front to back) enable this.
-//#define CHANGE_X_DIRECTION        // If your X carriage homes in the wrong direction (it should move right to left) enable this.
-//#define CHANGE_Z_DIRECTION        // If your Z homes in the wrong direction (it should move top to bottom) enable this.
+#define CHANGE_Y_DIRECTION        // If your bed homes in the wrong direction (it should move front to back) enable this.
+#define CHANGE_X_DIRECTION        // If your X carriage homes in the wrong direction (it should move right to left) enable this.
+#define CHANGE_Z_DIRECTION        // If your Z homes in the wrong direction (it should move top to bottom) enable this.
 //#define HOTEND_E3DV6              // Genuine E3D v6 hotend.
 //#define FULL_GRAPHIC_SMART        // Enable this if you have a RepRap Discount Full Graphic Smart Controller (The
                                     // stock controller is a RepRap Discount Smart Controller)
@@ -836,14 +836,14 @@
  *          TMC5130, TMC5130_STANDALONE
  * :['A4988', 'DRV8825', 'LV8729', 'L6470', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE']
  */
-#define X_DRIVER_TYPE  TMC2130_STANDALONE
-#define Y_DRIVER_TYPE  TMC2130_STANDALONE
-#define Z_DRIVER_TYPE  TMC2130_STANDALONE
+#define X_DRIVER_TYPE  TMC2130
+#define Y_DRIVER_TYPE  TMC2130
+#define Z_DRIVER_TYPE  TMC2130
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
 //#define Z2_DRIVER_TYPE A4988
-#define E0_DRIVER_TYPE TMC2130_STANDALONE
-#define E1_DRIVER_TYPE TMC2130_STANDALONE
+#define E0_DRIVER_TYPE TMC2130
+#define E1_DRIVER_TYPE TMC2130
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
 //#define E4_DRIVER_TYPE A4988
@@ -908,9 +908,9 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
 #if ENABLED(DUAL_EXTRUDER)
-  #define DEFAULT_MAX_FEEDRATE          { 300, 300, 7, 50, 50 }
+  #define DEFAULT_MAX_FEEDRATE          { 150, 150, 7, 25, 25 }
 #else
-  #define DEFAULT_MAX_FEEDRATE          { 300, 300, 7, 50 }
+  #define DEFAULT_MAX_FEEDRATE          { 150, 150, 7, 25 }
 #endif
 
 /**
@@ -920,9 +920,9 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
 #if ENABLED(DUAL_EXTRUDER)
-  #define DEFAULT_MAX_ACCELERATION      { 3000,  3000, 100, 10000, 10000 }
+  #define DEFAULT_MAX_ACCELERATION      { 2000,  1800, 100, 10000, 10000 }
 #else
-  #define DEFAULT_MAX_ACCELERATION      { 3000,  3000, 100, 10000 }
+  #define DEFAULT_MAX_ACCELERATION      { 2000,  1800, 100, 10000 }
 #endif
 
 /**
@@ -934,8 +934,8 @@
  *   M204 T    Travel Acceleration
  */
 #define DEFAULT_ACCELERATION          1000    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  2000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_RETRACT_ACCELERATION  1000    // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk (mm/s)
@@ -1704,7 +1704,7 @@
  * Attention: EXPERIMENTAL. G-code arguments may change.
  *
  */
-//#define NOZZLE_CLEAN_FEATURE
+#define NOZZLE_CLEAN_FEATURE
 
 #if ENABLED(NOZZLE_CLEAN_FEATURE)
   // Default number of pattern repetitions

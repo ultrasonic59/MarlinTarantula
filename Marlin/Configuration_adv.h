@@ -198,7 +198,7 @@
  */
 #define USE_CONTROLLER_FAN
 #if ENABLED(USE_CONTROLLER_FAN)
-  #define CONTROLLER_FAN_PIN 11        // Set a custom pin for the controller fan
+  #define CONTROLLER_FAN_PIN 65        // Set a custom pin for the controller fan
   #define CONTROLLERFAN_SECS 10          // Duration in seconds for the fan to run after all motors are disabled
   #define CONTROLLERFAN_SPEED 255        // 255 == full speed
 #endif
@@ -237,8 +237,8 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#define E0_AUTO_FAN_PIN 65
-#define E1_AUTO_FAN_PIN 65
+#define E0_AUTO_FAN_PIN 66
+#define E1_AUTO_FAN_PIN 66
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
 #define E4_AUTO_FAN_PIN -1
@@ -262,10 +262,10 @@
  */
 #define CASE_LIGHT_ENABLE
 #if ENABLED(CASE_LIGHT_ENABLE)
-  #define CASE_LIGHT_PIN 12                  // Override the default pin if needed
+  #define CASE_LIGHT_PIN 44                  // Override the default pin if needed
   #define INVERT_CASE_LIGHT false             // Set true if Case Light is ON when pin is LOW
-  #define CASE_LIGHT_DEFAULT_ON true          // Set default power-up state on
-  #define CASE_LIGHT_DEFAULT_BRIGHTNESS 105   // Set default power-up brightness (0-255, requires PWM pin)
+  #define CASE_LIGHT_DEFAULT_ON false          // Set default power-up state on
+  #define CASE_LIGHT_DEFAULT_BRIGHTNESS 50   // Set default power-up brightness (0-255, requires PWM pin)
   #define MENU_ITEM_CASE_LIGHT              // Add a Case Light option to the LCD main menu
   //#define CASE_LIGHT_USE_NEOPIXEL           // Use Neopixel LED as case light, requires NEOPIXEL_LED.
   #if ENABLED(CASE_LIGHT_USE_NEOPIXEL)
@@ -1177,7 +1177,7 @@
    * STEALTHCHOP needs to be enabled.
    * M913 X/Y/Z/E to live tune the setting
    */
-  //#define HYBRID_THRESHOLD
+  #define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD     100  // [mm/s]
   #define X2_HYBRID_THRESHOLD    100
@@ -1215,7 +1215,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continous reporting.
    */
-  //#define TMC_DEBUG
+  #define TMC_DEBUG
 
   /**
    * M915 Z Axis Calibration
@@ -1495,10 +1495,10 @@
   #define USER_GCODE_1 "G91\nG1 Z+30 F10000\nG90\nM84"
 
   #define USER_DESC_2 "Start cooling"
-  #define USER_GCODE_2 "G1 Y150 F10000\nM42 P66 S255"
+  #define USER_GCODE_2 "G1 Y150 F10000\nM42 P11 S255"
 
   #define USER_DESC_3 "End cooling"
-  #define USER_GCODE_3 "M42 P66 S0"
+  #define USER_GCODE_3 "M42 P11 S0"
   
   #define USER_DESC_4 "Clean nozzle"
   #define USER_GCODE_4 "G12 P1 S4 T3"
@@ -1506,8 +1506,8 @@
   #define USER_DESC_5 "Shutdown"
   #define USER_GCODE_5 "G90\nM104 S0\nM140 S0\nG1 X0 Y30 Z20 F10000\nM42 P66 S0\nM355 S0 P0\nM84"
 
-//  #define USER_DESC_6 "Home & Info"
-//  #define USER_GCODE_6 "G28\nM503"
+  #define USER_DESC_6 "Service"
+  #define USER_GCODE_6 "G90\nG1 X100 Y100 Z70 F10000\nM84"
 #endif
 
 /**
