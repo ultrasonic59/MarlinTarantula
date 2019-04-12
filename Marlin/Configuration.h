@@ -79,7 +79,8 @@
  * Z-Probe type (must be none or one of them)
  * If a Z-Probe type is selected, a Bed Leveling type other than MANUAL must be selected.
  */
-//#define BLTOUCH         // ANTClabs BLTouch sensor (might also work with clones)
+//#define BLTOUCH       // ANTClabs BLTouch sensor (might also work with clones)
+//#define BLTOUCH_V3    // ANTClabs BLTouch sensor version 3
 //#define SN04          // Green sensor
 //#define INDUCTIVE_NO  // Normally open inductive sensor
 //#define INDUCTIVE_NC  // Normally closed inductive sensor
@@ -242,6 +243,10 @@
  * DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING!!!!!! *
  *======================================================================*
  */
+
+#if ENABLED(BLTOUCH_V3) && DISABLED(BLTOUCH)
+  #define BLTOUCH
+#endif
 
 /**
  * Marlin 3D Printer Firmware
@@ -1037,7 +1042,9 @@
  */
 #if ENABLED(BLTOUCH)
   //#define BLTOUCH_DELAY 375   // (ms) Enable and increase if needed
-  //#define BLTOUCH_V3
+  #if ENABLED(BLTOUCH_V3)
+    #define BLTOUCH_V3
+  #endif
 #endif
 
 /**
