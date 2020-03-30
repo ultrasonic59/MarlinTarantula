@@ -35,7 +35,7 @@
  * Equipment options
  */
 //#define LARGE_BED
-#define SDSUPPORT
+//#define SDSUPPORT
 #define CHANGE_Y_DIRECTION        // If your bed homes in the wrong direction (it should move front to back) enable this.
 #define CHANGE_X_DIRECTION        // If your X carriage homes in the wrong direction (it should move right to left) enable this.
 #define CHANGE_Z_DIRECTION        // If your Z homes in the wrong direction (it should move top to bottom) enable this.
@@ -151,18 +151,18 @@
 /**
  * TEVO Tarantula Custom PID Settings - Stock Hotend
  */
-#define  hot_Kp 11.20
-#define  hot_Ki 0.60
-#define  hot_Kd 52.53
+#define  hot_Kp 31.81 //11.20
+#define  hot_Ki 3.60 //0.60
+#define  hot_Kd 70.35 //52.53
 // FIND YOUR OWN: "M303 E0 C8 S200" to run autotune on the hotend at 200 degreesC for 8 cycles.
 // More info here: http://reprap.org/wiki/PID_Tuning
 
 /**
  * TEVO Tarantula Custom PID Settings - Stock Heatbed
  */
-#define  bed_Kp 841.21
-#define  bed_Ki 165.63
-#define  bed_Kd 1068.13
+#define  bed_Kp 121.63 //841.21
+#define  bed_Ki 23.95 //165.63
+#define  bed_Kd 154.46 //1068.13
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 // More info here: http://reprap.org/wiki/PID_Tuning
 
@@ -188,10 +188,10 @@
 #define Hot_PLA     210
 #define Bed_PLA      55
 
-#define Hot_ABS 		240
-#define Bed_ABS 		100
+#define Hot_ABS     240
+#define Bed_ABS     100
 
-#define Hot_PETG 		230
+#define Hot_PETG    230
 #define Bed_PETG     80
 
 /**
@@ -369,7 +369,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
@@ -898,9 +898,9 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
 #if ENABLED(DUAL_EXTRUDER)
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.07, 80, Z_STEPS, E0_STEPS, E1_STEPS }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, Z_STEPS, E0_STEPS, E1_STEPS }
 #else
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.07, 80, Z_STEPS, E0_STEPS }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, Z_STEPS, E0_STEPS }
 #endif
 
 /**
@@ -909,9 +909,9 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
 #if ENABLED(DUAL_EXTRUDER)
-  #define DEFAULT_MAX_FEEDRATE          { 150, 150, 7, 25, 25 }
+  #define DEFAULT_MAX_FEEDRATE          { 300, 300, 7, 50, 50 }
 #else
-  #define DEFAULT_MAX_FEEDRATE          { 150, 150, 7, 25 }
+  #define DEFAULT_MAX_FEEDRATE          { 300, 300, 7, 50 }
 #endif
 
 /**
@@ -959,7 +959,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION
+//#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1410,7 +1410,7 @@
 
     // Beyond the probed grid, continue the implied tilt?
     // Default is to maintain the height of the nearest edge.
-    #define EXTRAPOLATE_BEYOND_GRID
+    //#define EXTRAPOLATE_BEYOND_GRID
 
     //
     // Experimental Subdivision of the grid by Catmull-Rom method.
@@ -1704,7 +1704,7 @@
  * Attention: EXPERIMENTAL. G-code arguments may change.
  *
  */
-#define NOZZLE_CLEAN_FEATURE
+//#define NOZZLE_CLEAN_FEATURE
 
 #if ENABLED(NOZZLE_CLEAN_FEATURE)
   // Default number of pattern repetitions
@@ -1809,7 +1809,7 @@
  * you must uncomment the following option or it won't work.
  *
  */
-#define SDSUPPORT
+//#define SDSUPPORT
 
 /**
  * SD CARD: SPI SPEED
